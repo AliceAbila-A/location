@@ -1,12 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { OnInit } from '@angular/core';
+import {
+  Component
+} from '@angular/core';
 
 declare const L: any;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit {
   title = 'locationApp';
 
@@ -23,7 +28,7 @@ export class AppComponent implements OnInit {
       let mymap = L.map('map').setView(latLong, 13);
 
       L.tileLayer(
-        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3VicmF0MDA3IiwiYSI6ImNrYjNyMjJxYjBibnIyem55d2NhcTdzM2IifQ.-NnMzrAAlykYciP4RP9zYQ',
+        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWxpY2VhYmlsYSIsImEiOiJjbDN3aWd1ajIwcGhyM2JuemNxYnkyazRnIn0.WljDiR7dqDnZQOat0OtPKA',
         {
           attribution:
             'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -37,11 +42,11 @@ export class AppComponent implements OnInit {
 
       let marker = L.marker(latLong).addTo(mymap);
 
-      marker.bindPopup('<b>Hi</b>').openPopup();
+      marker.bindPopup('<b>I`m here</b>').openPopup();
 
       let popup = L.popup()
         .setLatLng(latLong)
-        .setContent('I am Subrat')
+        .setContent('Serial ID:123xxx')
         .openOn(mymap);
     });
     this.watchPosition();
